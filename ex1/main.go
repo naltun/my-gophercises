@@ -12,8 +12,10 @@ import (
 )
 
 func main() {
-	// Set our CSV file by using CLI arg parsing
 	var file string
+	var answer string
+
+	// Set our CSV file by using CLI arg parsing
 	flag.StringVar(&file, "file", "problems.csv", "Specify a .CSV file to use for the questions")
 	flag.Parse()
 
@@ -42,7 +44,6 @@ func main() {
 		}
 
 		fmt.Println(line[0], "= ?")
-		var answer string
 		fmt.Scanln(&answer)
 		if answer == line[1] {
 			score++
@@ -55,9 +56,9 @@ func main() {
 		fmt.Printf("Not bad! You got %d correct!", score)
 	} else {
 		// Don't let them know their score....
-		fmt.Println("################################")
+		fmt.Println("#################################")
 		fmt.Println("# ERROR READING SCORE - EXITING #")
-		fmt.Println("################################")
+		fmt.Println("#################################")
 		msg := os.Getenv("USER") + " scored a " + strconv.Itoa(score) + ". I didn't want to let them know..."
 		for _, v := range []byte(msg) {
 			fmt.Println(v)
