@@ -43,12 +43,14 @@ func main() {
 			log.Fatalf("Something went wrong:\n%s", err)
 		}
 
-		fmt.Println(line[0], "= ?")
+		fmt.Printf("%s = ? ", line[0])
 		fmt.Scanln(&answer)
 		if answer == line[1] {
 			score++
 		}
 	}
+	// Blank line for readability
+	fmt.Println()
 
 	if score >= 10 {
 		fmt.Printf("Well done! Your score is %d. 😁", score)
